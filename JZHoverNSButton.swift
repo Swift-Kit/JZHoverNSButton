@@ -12,6 +12,8 @@ class JZHoverNSButton: NSButton {
     var trackingArea:NSTrackingArea!
     var hoverBackgroundColor: NSColor = NSColor.whiteColor()
     var originalBackgroundColor: NSColor = NSColor.whiteColor()
+    var hoverBackgroundImage: NSImage!
+    var originalBackgroundImage: NSImage!
     
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
@@ -21,7 +23,7 @@ class JZHoverNSButton: NSButton {
         trackingArea = NSTrackingArea(rect: bounds, options: opts, owner: self, userInfo: nil)
         self.addTrackingArea(trackingArea)
     }
-
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         
@@ -30,23 +32,25 @@ class JZHoverNSButton: NSButton {
         trackingArea = NSTrackingArea(rect: bounds, options: opts, owner: self, userInfo: nil)
         self.addTrackingArea(trackingArea)
     }
-
+    
     override func drawRect(dirtyRect: NSRect) {
         super.drawRect(dirtyRect)
-
+        
         // Drawing code here.
     }
     
     override func mouseEntered(theEvent: NSEvent) {
         var cell = self.cell() as! NSButtonCell
         cell.backgroundColor = hoverBackgroundColor
+        cell.image = hoverBackgroundImage
         println("hovered")
-
+        
     }
     
     override func mouseExited(theEvent: NSEvent) {
         var cell = self.cell() as! NSButtonCell
         cell.backgroundColor = originalBackgroundColor
+        cell.image = originalBackgroundImage
         println("exited")
     }
     
