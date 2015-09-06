@@ -10,7 +10,7 @@ import Cocoa
 class JZHoverNSButton: NSButton {
     
     var trackingArea:NSTrackingArea!
-    var hoverBackgroundColor: NSColor = NSColor.whiteColor()
+    var hoverBackgroundColor: NSColor = NSColor.grayColor()
     var originalBackgroundColor: NSColor = NSColor.whiteColor()
     var hoverBackgroundImage: NSImage!
     var originalBackgroundImage: NSImage!
@@ -43,7 +43,6 @@ class JZHoverNSButton: NSButton {
         var cell = self.cell() as! NSButtonCell
         cell.backgroundColor = hoverBackgroundColor
         cell.image = hoverBackgroundImage
-        println("hovered")
         
     }
     
@@ -51,7 +50,20 @@ class JZHoverNSButton: NSButton {
         var cell = self.cell() as! NSButtonCell
         cell.backgroundColor = originalBackgroundColor
         cell.image = originalBackgroundImage
-        println("exited")
+    }
+    
+    func setImages(bgColor: NSColor, imageOriginal: NSImage, imageHover: NSImage) {
+        self.hoverBackgroundColor = bgColor
+        self.originalBackgroundColor = bgColor
+        self.originalBackgroundImage = imageOriginal
+        self.hoverBackgroundImage = imageHover
+    }
+    
+    func setColors(originalBgColor: NSColor, hoverBgColor:NSColor) {
+        self.hoverBackgroundColor = hoverBgColor
+        self.originalBackgroundColor = originalBgColor
+        self.originalBackgroundImage = nil
+        self.hoverBackgroundImage = nil
     }
     
 }
