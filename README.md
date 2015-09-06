@@ -4,9 +4,9 @@ Subclass of NSButton which has hover attributes
 ## Usage
 Drag `JZHoverNSButton.swift` to your project
 
-Either init with one of the initializer or create via Interface Builder and set the class of NSImageView as JZAvatarNSImageView
+Either init with one of the initializer or create via Interface Builder and set the class of NSButton as JZHoverNSButton
 
-This HoverNSButton supports two ways of hovering: 
+This NSButton class supports two ways of hovering: 
 
 * Background image
 
