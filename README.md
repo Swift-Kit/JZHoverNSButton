@@ -23,10 +23,9 @@ myButton.setColors(NSColor.blackColor()!,
 ```
 
 ### Attributed String
+It also supports attributed string via these two setters
 
 ```
-//It also supports attributed string via these two setters
-
 myButton.setText(str, NSColor.whiteColor(), size: 15)
 
 OR
