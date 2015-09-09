@@ -27,9 +27,10 @@ It also supports attributed string via these two setters
 
 ```
 myButton.setText(str, NSColor.whiteColor(), size: 15)
-
+```
 OR
 
+```
 myButton.setText(str, NSColor.whiteColor())
 ```
 
