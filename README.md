@@ -1,5 +1,5 @@
 # JZHoverNSButton
-Subclass of NSButton which has hover attributes
+Subclass of NSButton which has hover attributes. Currently support up to Swift 2.0.
 
 ## Usage
 Drag `JZHoverNSButton.swift` to your project
