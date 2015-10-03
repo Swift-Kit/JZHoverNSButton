@@ -21,36 +21,36 @@ class JZHoverNSButton: NSButton {
         super.init(frame: frameRect)
         
         // set tracking area
-        var opts = (NSTrackingAreaOptions.MouseEnteredAndExited | NSTrackingAreaOptions.ActiveAlways)
+        let opts: NSTrackingAreaOptions = ([NSTrackingAreaOptions.MouseEnteredAndExited, NSTrackingAreaOptions.ActiveAlways])
         trackingArea = NSTrackingArea(rect: bounds, options: opts, owner: self, userInfo: nil)
         self.addTrackingArea(trackingArea)
     }
-
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         
         // set tracking area
-        var opts = (NSTrackingAreaOptions.MouseEnteredAndExited | NSTrackingAreaOptions.ActiveAlways)
+        let opts: NSTrackingAreaOptions = ([NSTrackingAreaOptions.MouseEnteredAndExited, NSTrackingAreaOptions.ActiveAlways])
         trackingArea = NSTrackingArea(rect: bounds, options: opts, owner: self, userInfo: nil)
         self.addTrackingArea(trackingArea)
     }
-
+    
     override func drawRect(dirtyRect: NSRect) {
         super.drawRect(dirtyRect)
-
+        
         // Drawing code here.
     }
     
     // MARK: mouse events
     override func mouseEntered(theEvent: NSEvent) {
-        var cell = self.cell() as! NSButtonCell
+        let cell = self.cell as! NSButtonCell
         cell.backgroundColor = hoverBackgroundColor
         cell.image = hoverBackgroundImage
-
+        
     }
     
     override func mouseExited(theEvent: NSEvent) {
-        var cell = self.cell() as! NSButtonCell
+        let cell = self.cell as! NSButtonCell
         cell.backgroundColor = originalBackgroundColor
         cell.image = originalBackgroundImage
     }
@@ -75,16 +75,14 @@ class JZHoverNSButton: NSButton {
         attributedStr = NSMutableAttributedString(string: str)
         attributedStr.addAttribute(NSForegroundColorAttributeName, value: color, range: NSRange(location: 0, length:attributedStr.length))
         attributedStr.addAttribute(NSFontSizeAttribute, value: size.description, range: NSRange(location: 0, length:attributedStr.length))
-        var cell = self.cell() as! NSButtonCell
         self.attributedTitle = attributedStr
     }
     
     func setText(str: String, color: NSColor) {
         attributedStr = NSMutableAttributedString(string: str)
         attributedStr.addAttribute(NSForegroundColorAttributeName, value: color, range: NSRange(location: 0, length:attributedStr.length))
-        var cell = self.cell() as! NSButtonCell
         self.attributedTitle = attributedStr
     }
-
+    
     
 }
